@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { PriceEditComponent } from './price-edit/price-edit.component';
-import { PriceOverviewComponent } from './price-overview/price-overview.component';
+import { PriceEditComponent } from './modules/price-edit/price-edit.component';
+import { PriceOverviewComponent } from './modules/price-overview/price-overview.component';
 
 @NgModule({
   declarations: [
