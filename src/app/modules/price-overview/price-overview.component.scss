@@ -1,0 +1,20 @@
+:host {
+    .flex {
+        display: flex;
+        flex-direction: column;
+        margin-left: 20px;
+        margin-right: 20px;
+        .products {
+            display: flex;
+            width: 100%;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            .name {
+                flex-grow: 1;
+            }
+            .price {
+                flex-grow: 1;
+            }
+        }
+    }
+}
