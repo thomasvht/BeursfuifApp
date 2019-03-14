@@ -1,9 +1,26 @@
-.credits {
-    position: fixed;
-    bottom: 0;
-    padding: 8px;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    width: 100%;
+:host {
+    .navbar {
+        background-color: #C33C54;
+        color: #FFF;
+        height: 50px;
+        line-height: 3;
+        text-align: end;
+        &__item {
+            text-decoration: none;
+            padding: 4px;
+            color: #FFF;
+            &:hover {
+                color: #AEF3E7
+            }
+        }
+    }
+    .credits {
+        position: fixed;
+        bottom: 0;
+        padding: 8px;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        width: 100%;
+    }
 }

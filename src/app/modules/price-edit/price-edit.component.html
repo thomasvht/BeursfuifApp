@@ -1,1 +1,23 @@
 <h1>Edit</h1>
+<div class="flex">
+    <form [formGroup]="form" class="form flex flex-grow-1 padding-left--20 padding-right--20" (submit)="onSubmit()">
+        <input type="hidden" formControlName="id">
+        <div class="form-item flex flex-grow-1">
+            <label>Product name</label>
+            <input type="text" formControlName="name" class="flex-grow-1" required>
+        </div>
+        <div class="form-item flex flex-grow-1">
+            <label>Product price</label>
+            <input type="number" formControlName="price" class="flex-grow-1" required>
+        </div>
+        <button type="submit" [disabled]="form.invalid" class="btn btn-submit btn--large flex-grow-1">Save</button>
+    </form>
+    <div class="overview flex-grow-2 padding-left--20 padding-right--20">
+        <div *ngFor="let product of products$ | async" class="products flex">
+            <div class="flex-grow-1">{{product.name}}</div>
+            <div class="flex-grow-1">{{product.price}}</div>
+            <span (click)="onEdit(product)" class="btn btn-edit btn--large"><i class="fas fa-pen"></i></span>
+            <span (click)="onDelete(product.id)" class="btn btn-delete btn--large"><i class="fas fa-trash"></i></span>
+        </div>
+    </div>
+</div>

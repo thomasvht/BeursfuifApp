@@ -1,7 +1,10 @@
 <h1>Overview</h1>
 <div class="flex">
-    <div *ngFor="let product of products" class="products">
+    <div *ngFor="let product of products$ | async" class="products">
         <div class="name">{{product.name}}</div>
         <div class="price">{{product.price}}</div>
+        <div *ngIf="product.trend === 'RAISED'" class="raise"><i class="fas fa-arrow-up"></i></div>
+        <div *ngIf="product.trend === 'DECREASED'" class="decrease"><i class="fas fa-arrow-down"></i></div>
+        <div *ngIf="product.trend === 'SAME'"><i class="fas fa-minus"></i></div>
     </div>
 </div>

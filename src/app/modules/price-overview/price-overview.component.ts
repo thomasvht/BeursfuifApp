@@ -1,4 +1,7 @@
 import { Component } from "@angular/core";
+import { Product } from "src/app/entities/product.entity";
+import { ProductsService } from "src/app/services/products-https.service";
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-price-overview',
@@ -7,9 +10,13 @@ import { Component } from "@angular/core";
 })
 
 export class PriceOverviewComponent {
-    products = [
-        {name: 'cola', price: '€ 1.50'},
-        {name: 'pintje', price: '€ 1.00'},
-        {name: 'ice-tea', price: '€ 2.00'}
-    ]
+    products$: Observable<Array<any>>;
+
+    constructor(private productsHttpService: ProductsService) {
+
+    }
+
+    ngOnInit() {
+        this.products$ = this.productsHttpService.getProducts();
+    }
 }

@@ -1,0 +1,25 @@
+:host {
+    h1 {
+        text-align: center;
+    }
+  .form {
+      flex-direction: column;
+    .form-item {
+        padding: 16px;
+        label {
+            padding-right: 16px;
+        }
+    }
+  }
+  .overview {
+    .products {
+        div {
+            align-self: center;
+            align-content: center;
+        }
+        span {
+            margin: 8px;
+        }
+    }
+  }
+}
