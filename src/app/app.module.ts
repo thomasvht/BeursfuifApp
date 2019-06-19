@@ -12,10 +12,12 @@ import { PriceEditComponent } from './modules/price-edit/price-edit.component';
 import { PriceOverviewComponent } from './modules/price-overview/price-overview.component';
 import { environment } from 'src/environments/environment';
 import { ProductsService } from './services/products-https.service';
+import { KassaComponent } from './modules/kassa/kassa.component';
 
 const appRoutes: Routes = [
   {path: 'overview', component: PriceOverviewComponent},
   {path: 'edit', component: PriceEditComponent},
+  {path: 'kassa', component: KassaComponent},
   {path: '**', redirectTo : '/overview', pathMatch: 'full'},
   {path: '', redirectTo: '/overview', pathMatch: 'full'}
 ];
@@ -23,6 +25,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    KassaComponent,
     PriceEditComponent,
     PriceOverviewComponent
   ],
