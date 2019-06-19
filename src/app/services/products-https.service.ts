@@ -24,6 +24,7 @@ export class ProductsService {
   }
 
   addProduct(data) {
+    delete data.id;
     this.firestore.collection("products").add(data);
   }
 

@@ -3,6 +3,7 @@ import { ProductsService } from "src/app/services/products-https.service";
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
     selector: 'app-price-edit',
@@ -40,10 +41,12 @@ export class PriceEditComponent {
             this.productsHttpService.addProduct(data);
         } else  {
             if (data.previous_price < data.price) {
-                data.trend = 'RAISED';
-            } else {
                 data.trend = 'DECREASED';
+            } else {
+                data.trend = 'RAISED';
             }
+            // set previous price of data to price from products$
+
             this.productsHttpService.updateProduct(data, data.id)
         }
         this.form.reset();
@@ -51,6 +54,7 @@ export class PriceEditComponent {
     }
 
     onEdit(product) {
+        this.form.controls.id.setValue(product.id);
         this.form.controls.name.setValue(product.name);
         this.form.controls.price.setValue(product.price);
     }
