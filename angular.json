@@ -67,7 +67,9 @@
         },
         "test": {
           "builder": "@angular-builders/jest:run",
-          "options": {}
+          "options": {
+            "tsConfig": "src/tsconfig.spec.json"
+          }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
