@@ -1,7 +1,78 @@
-<nav class="navbar">
-    <a class="navbar__item" routerLink="/overview" routerLinkActive="active">Prices</a>
-    <a class="navbar__item" routerLink="/edit" routerLinkActive="active">Edit</a>
-    <a class="navbar__item" routerLink="/kassa" routerLinkActive="active">Kassa</a>
-</nav>
-<router-outlet></router-outlet>
-<div class="credits">Created by Thomas Vanhoutte</div>
+<div class=" ox-layout">
+    <input type="checkbox" class="ox-toggle-navigation" id="toggle-navigation" tabindex="2">
+    <header class="ox-layout__header" role="banner">
+        <div class="ox-header-container">
+            <a>
+                <span>BeursFuifApp</span>
+            </a>
+            <label for="toggle-navigation" tabindex="0" class="ox-hamburger" role="button"
+                aria-label="Toggle navigation">
+                <span class="ox-hamburger__line ox-hamburger__line--top" role="none presentation"></span>
+                <span class="ox-hamburger__line ox-hamburger__line--middle" role="none presentation"></span>
+                <span class="ox-hamburger__line ox-hamburger__line--bottom" role="none presentation"></span>
+            </label>
+        </div>
+    </header>
+
+    <div class="ox-layout__primary-navigation-wrapper">
+        <nav role="navigation" class="ox-navigation-container">
+            <label for="toggle-navigation" class="ox-navigation-container__close"><span
+                    class="ox-icon ox-icon--close ox-icon--small"></span></label>
+            <ul class="ox-navigation ox-navigation--grow">
+                <li class="ox-navigation__item" [attr.aria-current]="isActive('/overview')">
+                    <a class="ox-navigation__item__link" routerLink="/overview">Prices</a>
+                </li>
+                <li class="ox-navigation__item" [attr.aria-current]="isActive('/edit')">
+                    <a class="ox-navigation__item__link" routerLink="/edit">Edit</a>
+                </li>
+                <li class="ox-navigation__item" [attr.aria-current]="isActive('/kassa')">
+                    <a class="ox-navigation__item__link" routerLink="/kassa">Kassa</a>
+                </li>
+            </ul>
+
+            <ul class="ox-navigation ox-hide-large-up">
+                <li class="ox-navigation__item">
+                    <a class="ox-navigation__item__link"><span
+                            class="ox-navigation__item__link__icon ox-icon ox-icon--settings"></span> Settings</a>
+                </li>
+                <li class="ox-navigation__item">
+                    <a href="#" class="ox-navigation__item__link"><span
+                            class="ox-navigation__item__link__icon ox-navigation__item__link__icon--error ox-icon ox-icon--power"></span>
+                        Log out</a>
+                </li>
+            </ul>
+
+            <div class="ox-dropmenu-wrapper ox-show-large-up" aria-haspopup="true">
+                <input type="checkbox" class="ox-dropmenu-toggle" id="toggle-account-nav">
+                <label for="toggle-account-nav"
+                    class="ox-dropmenu__trigger ox-button ox-button--secondary ox-button--icon-small" role="button"
+                    aria-label="Toggle account nav">
+                    <span class="ox-icon ox-icon--user"></span>
+                </label>
+                <div class="ox-dropmenu">
+                    <ul class="ox-dropmenu__list" tabindex="-1" role="menu" aria-label="Overflow"
+                        data-floating-menu-direction="bottom">
+                        <li class="ox-dropmenu__option" role="presentation">
+                            <a class="ox-dropmenu__option__button" role="menuitem">
+                                <span class="ox-dropmenu__option__icon ox-icon ox-icon--settings"></span>
+                                Settings
+                            </a>
+                        </li>
+                        <li class="ox-dropmenu__option ox-dropmenu__option--separator ox-dropmenu__option--error"
+                            role="presentation">
+                            <button class="ox-dropmenu__option__button" role="menuitem">
+                                <span class="ox-dropmenu__option__icon ox-icon ox-icon--power"></span>
+                                Log out
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <main role="main" class="ox-layout__main">
+        <div class="ox-layout__main__content ox-container">
+            <router-outlet></router-outlet>
+        </div>
+    </main>
+</div>
