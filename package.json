@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "firebase deploy"
+    "firebase:login": "firebase login",
+    "firebase:deploy": "firebase deploy"
   },
   "private": true,
   "dependencies": {
