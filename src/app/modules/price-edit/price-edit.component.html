@@ -1,23 +1,64 @@
-<h1>Edit</h1>
 <div class="flex">
-    <form [formGroup]="form" class="form flex flex-grow-1 padding-left--20 padding-right--20" (submit)="onSubmit()">
-        <input type="hidden" formControlName="id">
-        <div class="form-item flex flex-grow-1">
-            <label>Product name</label>
-            <input type="text" formControlName="name" class="flex-grow-1" required>
-        </div>
-        <div class="form-item flex flex-grow-1">
-            <label>Product price</label>
-            <input type="number" formControlName="price" class="flex-grow-1" required>
-        </div>
-        <button type="submit" [disabled]="form.invalid" class="btn btn-submit btn--large flex-grow-1">Save</button>
-    </form>
-    <div class="overview flex-grow-2 padding-left--20 padding-right--20">
-        <div *ngFor="let product of products$ | async" class="products flex">
-            <div class="flex-grow-1">{{product.name}}</div>
-            <div class="flex-grow-1">{{product.price}}</div>
-            <span (click)="onEdit(product)" class="btn btn-edit btn--large"><i class="fas fa-pen"></i></span>
-            <span (click)="onDelete(product.id)" class="btn btn-delete btn--large"><i class="fas fa-trash"></i></span>
+    <div class="flex-grow-1 padding-right--32">
+        <h1 class="padding-bottom--16">Add new product</h1>
+        <form class="ox-form" [formGroup]="form" (submit)="onSubmit()">
+            <div class="ox-form__group">
+                <label for="max-price-readonly" id="max-price-readonly-label" class="ox-form__label">ID</label>
+                <div class="ox-form__input-group ox-form__input-group--prepend">
+                    <input type="text" formControlName="id" id="max-price-readonly" class="ox-form__field"
+                        aria-labelledby="max-price-readonly-label max-price-readonly max-price-readonly-unit"
+                        readonly />
+                </div>
+            </div>
+            <div class="ox-form__group">
+                <label for="text-field" class="ox-form__label">Product name</label>
+                <input type="text" id="text-field" class="ox-form__field" formControlName="name" />
+            </div>
+
+            <div class="ox-form__group">
+                <label for="number-field" class="ox-form__label">Product price</label>
+                <input type="number" id="number-field" class="ox-form__field" formControlName="price" />
+            </div>
+            <button type="button" class="ox-button ox-button--primary" [disabled]="form.invalid" (click)="onSubmit()">Save</button>
+        </form>
+    </div>
+    <div class="flex-grow-1 padding-left--32">
+        <div class="ox-table-wrapper">
+            <table class="ox-table ox-table--responsive">
+                <thead>
+                    <tr>
+                        <th scope="col">Name of drink</th>
+                        <th scope="col">Price of drink</th>
+                        <th scope="col" width="120"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="ox-table__row--three-column" *ngFor="let product of products$ | async">
+                        <td>
+                            <h5>{{product.name}}</h5>
+                        </td>
+                        <td>
+                            <h5>{{product.price | currency:'EUR'}}</h5>
+                        </td>
+                        <td class="ox-table__cell--fixed-end">
+                            <div class="ox-button-group">
+                                <button type="button"
+                                    class="ox-button ox-button--icon-small ox-button--ghost ox-has-tooltip"
+                                    aria-label="Edit" data-tooltip="Edit"
+                                    (click)="onEdit(product)"><span
+                                        class="ox-button__icon ox-icon ox-icon--edit"
+                                        aria-hidden="true"></span></button>
+                                <button type="button"
+                                    class="ox-button ox-button--icon-small ox-button--ghost ox-has-tooltip"
+                                    aria-label="Delete" data-tooltip="Delete"
+                                    (click)="onDelete(product.id)"><span
+                                        class="ox-button__icon ox-icon ox-icon--trash"
+                                        aria-hidden="true"></span></button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

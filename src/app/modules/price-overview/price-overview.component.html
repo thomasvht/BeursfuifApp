@@ -1,10 +1,28 @@
-<h1>Overview</h1>
-<div class="flex">
-    <div *ngFor="let product of products$ | async" class="products">
-        <div class="name">{{product.name}}</div>
-        <div class="price">{{product.price}}</div>
-        <div *ngIf="product.trend === 'RAISED'" class="raise"><i class="fas fa-arrow-up"></i></div>
-        <div *ngIf="product.trend === 'DECREASED'" class="decrease"><i class="fas fa-arrow-down"></i></div>
-        <div *ngIf="product.trend === 'SAME'"><i class="fas fa-minus"></i></div>
-    </div>
+<div class="ox-table-wrapper">
+    <table class="ox-table ox-table--responsive">
+        <!--<thead class="text-align__center">
+            <tr>
+                <th scope="col">Name of drink</th>
+                <th scope="col">Price of drink</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>-->
+        <tbody>
+            <tr class="ox-table__row--three-column text-align__center" *ngFor="let product of products$ | async">
+                <td>
+                    <h5>{{product.name}}</h5>
+                </td>
+                <td>
+                    <h5>{{product.price | currency:'EUR'}}</h5>
+                </td>
+                <td>
+                    <h5>
+                        <span *ngIf="product.trend === 'RAISED'" class="ox-icon ox-icon--graph raise"></span>
+                        <span *ngIf="product.trend === 'DECREASED'" class="ox-icon ox-icon--graph decrease"></span>
+                        <span *ngIf="product.trend === 'SAME'"><i class="fas fa-minus"></i></span>
+                    </h5>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
