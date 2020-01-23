@@ -1,1 +1,37 @@
 <h1>Kassa</h1>
+<ul class="ox-card-list ox-card-list--blocks">
+    <li class="ox-card ox-card--has-action" *ngFor="let product of products$ | async">
+        <a href="#" class="ox-card__media ox-card__media--padded">
+            <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg" style="max-height: 140px">
+                <g id="page-layout-example" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="default-layout" fill-rule="nonzero">
+                        <rect id="page" stroke="#C6D9D9" fill="#FFFFFF" x="0.5" y="0.5" width="199" height="139" rx="3">
+                        </rect>
+                        <g id="header">
+                            <path
+                                d="M3,0 L197,-4.4408921e-16 C198.656854,-7.48448398e-16 200,1.34314575 200,3 L200,20.1438849 L0,20.1438849 L-4.4408921e-16,3 C-6.46995335e-16,1.34314575 1.34314575,-1.39730022e-16 3,-4.4408921e-16 Z"
+                                fill="#C6D9D9"></path>
+                            <rect id="header-icon" fill="#FFFFFF" x="8" y="6.04316547" width="19.1919192"
+                                height="8.05755396" rx="4"></rect>
+                        </g>
+                        <g id="primary-nav" transform="translate(0.000000, 19.136691)">
+                            <rect id="nav" stroke="#C6D9D9" fill="#FFFFFF" x="0.5" y="0.5" width="199"
+                                height="19.1438849"></rect>
+                            <rect id="nav-item" fill="#C6D9D9" x="90.9090909" y="8.05755396" width="24.2424242"
+                                height="4.02877698" rx="2.01438849"></rect>
+                            <rect id="nav-item" fill="#C6D9D9" x="64.6464646" y="8.05755396" width="18.1818182"
+                                height="4.02877698" rx="2.01438849"></rect>
+                            <rect id="nav-item" fill="#C6D9D9" x="33.3333333" y="8.05755396" width="23.2323232"
+                                height="4.02877698" rx="2.01438849"></rect>
+                            <rect id="nav-item" fill="#C6D9D9" x="8" y="8.05755396" width="17.1717172"
+                                height="4.02877698" rx="2.01438849"></rect>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+        </a>
+        <a href="#" class="ox-card__content">
+            <h4>{{product.name}}</h4>
+        </a>
+    </li>
+</ul>
