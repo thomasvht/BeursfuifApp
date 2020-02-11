@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
+import { Product } from '../entities/product.entity';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,7 @@ export class ProductsService {
     return this.firestore.collection("products").snapshotChanges()
       .pipe(map(actionArray => actionArray.map(
         item => {
-          let product = item.payload.doc.data();
+          let product: Product = item.payload.doc.data() as Product;
           return { id: item.payload.doc.id, ...product };
         }
       )
