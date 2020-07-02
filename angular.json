@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "BeursfuifApp"
+  "defaultProject": "BeursfuifApp",
+  "cli": {
+    "analytics": "aef60c99-13fc-47fc-b5d2-75f6dbd94e58"
+  }
 }
