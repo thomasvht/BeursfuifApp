@@ -5,6 +5,7 @@ on:
     branches:
     - master
   pull-request:
+    branches:
     - master
 
 jobs:
