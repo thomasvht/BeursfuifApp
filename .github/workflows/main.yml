@@ -23,10 +23,11 @@ jobs:
     - uses: actions/checkout@master
     - uses: actions/setup-node@master
       with:
-        node-version: '10.x'
-    - run: npm install
-    - run: npm run build:prod
+        node-version: '12.x'
+    - run: yarn
+    - run: yarn build:prod
     - uses: w9jds/firebase-action@master
       with:
         args: deploy --only hosting
-        env: FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN}}
+        env: 
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
